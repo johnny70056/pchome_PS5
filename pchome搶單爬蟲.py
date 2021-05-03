@@ -21,13 +21,12 @@ while datetime.now() < startTime:
 print('Program now starts on %s' % startTime)
 print('Executing...')
 #如果使用headless會幫助跑的速度，因為不用顯示出來
-#chromedriver網路上可以載
 option = webdriver.ChromeOptions()
 #option.add_argument('headless')
 option.add_argument("--lang=en")
 driver = webdriver.Chrome(chrome_options=option,executable_path='./chromedriver.exe')
 # 
-#這邊放你要的網址
+#這邊放商品網址
 url = 'https://24h.pchome.com.tw/prod/DGBJG9-A900B51SM?fq=/S/DGBJG9'
 
 driver.get(url)
@@ -45,11 +44,11 @@ button_check.click()
 time.sleep(1)
 account = driver.find_element_by_xpath('//*[@id="loginAcc"]')
 account.clear()
-account.send_keys('johnny70056@gmail.com')
+account.send_keys('帳號')
 
 password = driver.find_element_by_xpath('//*[@id="loginPwd"]')
 password.clear()
-password.send_keys('allen60606')
+password.send_keys('密碼')
 driver.find_element_by_xpath('//*[@id="btnLogin"]').click()
 
 time.sleep(6)
@@ -61,7 +60,7 @@ button_CC.click()
 time.sleep(1)
 threeword = driver.find_element_by_xpath('//*[@id="multi_CVV2Num"]')
 threeword.clear()
-threeword.send_keys('304')
+threeword.send_keys('三碼')
 
 
 
